@@ -1,0 +1,16 @@
+# MinerU 原始输出 / 抓取的原始 PDF / 交付产物
+_raw/
+books/
+dist/
+*.zip
+备份/
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

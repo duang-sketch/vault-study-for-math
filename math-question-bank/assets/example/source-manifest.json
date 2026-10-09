@@ -1,0 +1,23 @@
+{
+  "schema": "mpk-source-manifest/v1",
+  "title": "示例题库（自造 demo）",
+  "source_format": "numbered-markdown/v1",
+  "generator": "math-question-bank-toolkit (demo)",
+  "generated_at": "2026-10-08T00:00:00+00:00",
+  "extraction": {
+    "tool": "自造，无 OCR",
+    "fidelity": "本题库为演示格式而作，非任何教材内容"
+  },
+  "counts": {
+    "sources": 1,
+    "entries": 13
+  },
+  "sources_detail": [
+    {
+      "label": "自造 demo（13 题）",
+      "path": "assets/example/示例题库.md",
+      "pages": 7,
+      "sha256": "a01ae8ee8fcdec3ad59caf921b72b627a7bf861c5e72999c9ada36096f95afdc"
+    }
+  ]
+}

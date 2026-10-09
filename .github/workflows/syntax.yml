@@ -1,0 +1,40 @@
+name: syntax
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Python 语法检查
+        run: python -m compileall -q math-question-bank/scripts
+
+      - name: CLI 冒烟测试（不需要装 poppler）
+        run: |
+          for f in math-question-bank/scripts/*.py; do
+            echo "== $f"
+            python "$f" --help > /dev/null
+          done
+
+      - name: PowerShell 语法检查
+        shell: pwsh
+        run: |
+          $failed = $false
+          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
+            $errs = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile(
+              $_.FullName, [ref]$null, [ref]$errs)
+            if ($errs.Count) {
+              $failed = $true
+              $errs | ForEach-Object { Write-Host "::error file=$($_.Extent.File)::$($_.Message)" }
+            }
+          }
+          if ($failed) { exit 1 }

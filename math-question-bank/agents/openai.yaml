@@ -1,0 +1,6 @@
+interface:
+  display_name: "Math Question Bank"
+  short_description: "把教材/习题册/真题 PDF 转成可检索、可溯源的题库"
+  default_prompt: "Use $math-question-bank to turn this PDF workbook into a page-traceable question collection."
+policy:
+  allow_implicit_invocation: true
