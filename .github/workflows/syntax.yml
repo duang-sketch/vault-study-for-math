@@ -19,10 +19,16 @@ jobs:
 
       - name: CLI 冒烟测试（不需要装 poppler）
         run: |
-          for f in math-question-bank/scripts/*.py; do
+          for f in $(find math-question-bank/scripts -name '*.py' | sort); do
+            case "$f" in
+              */worked-example/*) continue ;;
+            esac
             echo "== $f"
             python "$f" --help > /dev/null
           done
+
+      - name: 合成数据功能测试（pdfkit / from_web / export_mongo）
+        run: python .github/selftest.py
 
       - name: PowerShell 语法检查
         shell: pwsh
