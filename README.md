@@ -24,7 +24,7 @@ bash ./install.sh
 
 ```bash
 python <skill-installer>/scripts/install-skill-from-github.py \
-  --repo duang-sketch/math-question-bank-skill --path math-question-bank
+  --repo duang-sketch/vault-study-for-math --path math-question-bank
 ```
 
 ## 它做什么
